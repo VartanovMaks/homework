@@ -13,5 +13,8 @@ constructor(private http:HttpClient) { }
 getUsers():Observable<User[]>{
   return this.http.get<User[]>(this.baseUrl);
 }
+getSingleUser(id:string):Observable<User>{
+  return this.http.get<User>(this.baseUrl+'/'+id);
+}
 
 }

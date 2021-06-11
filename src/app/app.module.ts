@@ -10,6 +10,7 @@ import { UserComponent } from './components/user/user.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/post/post.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { PostDetailsComponent } from './components/post-details/post-details.component';
 
 let routes: Routes = [
   { path: 'users', component:UsersComponent,
@@ -17,7 +18,11 @@ let routes: Routes = [
       {path:':id', component:UserDetailsComponent}
     ]
   },
-  { path: 'posts', component:PostsComponent},
+  { path: 'posts', component:PostsComponent,
+    children:[
+      {path:':id', component:PostDetailsComponent}
+    ]
+  },
   { path: '**', redirectTo:'users'}
 ]
 
@@ -28,7 +33,8 @@ let routes: Routes = [
     UserComponent,
     UserDetailsComponent,
     PostsComponent,
-    PostComponent
+    PostComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
