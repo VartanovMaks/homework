@@ -11,16 +11,22 @@ import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/post/post.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { UserResolveService } from './services/user-resolve.service';
+import { PostResolveService } from './services/post-resolve.service';
 
 let routes: Routes = [
   { path: 'users', component:UsersComponent,
     children:[
-      {path:':id', component:UserDetailsComponent}
+      {path:':id', component:UserDetailsComponent,
+        resolve:{userData:UserResolveService}
+      }
     ]
   },
   { path: 'posts', component:PostsComponent,
     children:[
-      {path:':id', component:PostDetailsComponent}
+      {path:':id', component:PostDetailsComponent,
+      resolve:{postData:PostResolveService}
+      }
     ]
   },
   { path: '**', redirectTo:'users'}
