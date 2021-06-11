@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Post } from 'src/app/model/post';
+import { Post } from 'src/app/components/modules/post/post';
 
 @Component({
   selector: 'app-post',

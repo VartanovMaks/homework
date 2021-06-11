@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from 'src/app/model/user';
+import { User } from 'src/app/components/modules/user/models/user';
 
 @Component({
   selector: 'app-user',

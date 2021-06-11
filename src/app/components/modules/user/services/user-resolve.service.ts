@@ -1,5 +1,5 @@
 import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/model/user';
+import { User } from 'src/app/components/modules/user/models/user';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
