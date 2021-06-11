@@ -17,8 +17,9 @@ export class PostComponent implements OnInit {
   }
 
   goToDetails(){
-    console.log('Go to post details',this.post);
-    this.router.navigate([this.post.id], {relativeTo: this.activatedRoute, state: this.post});
+    // console.log('Go to post details',this.post);
+    this.router.navigate([this.post.id], {relativeTo: this.activatedRoute});
+    // this.router.navigate([this.post.id], {relativeTo: this.activatedRoute, state: this.post});
 
   }
 }

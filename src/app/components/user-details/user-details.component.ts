@@ -10,12 +10,10 @@ import { User } from 'src/app/model/user';
 export class UserDetailsComponent implements OnInit {
   user:User;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.params.subscribe(params => {
-      this.user = this.router.getCurrentNavigation()?.extras.state as User;
-      console.log(this.user);
-    })
-  }
+  constructor(private activatedRoute:ActivatedRoute) {
+
+    this.activatedRoute.data.subscribe(value => this.user = value.userData)
+}
 
   ngOnInit() {
   }
