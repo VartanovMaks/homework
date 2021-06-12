@@ -1,19 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Post } from '../components/modules/post/post';
+import { Post } from '../models/post';
+import { Comment } from '../models/comment';
 
 @Injectable({
   providedIn: 'root'
 })
   export class PostService {
-    private baseUrl='https://jsonplaceholder.typicode.com/posts'
+    private postsUrl='https://jsonplaceholder.typicode.com/posts';
+    private commentsUrl = 'https://jsonplaceholder.typicode.com/comments';
 
   constructor(private http:HttpClient) { }
   getPosts():Observable<Post[]>{
-    return this.http.get<Post[]>(this.baseUrl);
+    return this.http.get<Post[]>(this.postsUrl);
   }
-  getSinglePost(id:string):Observable<Post>{
-    return this.http.get<Post>(this.baseUrl+'/'+id);
+
+  getPostComments(id:string):Observable<Comment>{
+    return this.http.get<Comment>(this.commentsUrl+'?postId='+id);
   }
 }

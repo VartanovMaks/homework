@@ -21,4 +21,5 @@ export class UserComponent implements OnInit {
     // this.router.navigate([this.user.id], {relativeTo: this.activatedRoute, state: this.user});
 
   }
+
 }

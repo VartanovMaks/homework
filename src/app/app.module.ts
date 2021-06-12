@@ -7,8 +7,8 @@ import { AppComponent } from './components/app/app.component';
 
 let routes:Routes = [
   {path:'users', loadChildren:()=>import('./components/modules/user/user.module').then(m=>m.UserModule)},
-  {path:'posts', loadChildren:()=>import('./components/modules/post/post.module').then(m=>m.PostModule)}
-
+  {path:'posts', loadChildren:()=>import('./components/modules/post/post.module').then(m=>m.PostModule)},
+  {path:'**', loadChildren:()=>import('./components/modules/user/user.module').then(m=>m.UserModule)},
 ];
 
 @NgModule({

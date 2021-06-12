@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Post } from '../post';
+import { Post } from '../models/post';
 import { PostService } from './post.service';
 
 @Injectable({
@@ -14,7 +14,7 @@ constructor(private postService: PostService) {}
 resolve(activatedRouteSnapshot: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
   console.log('params passed to resolve', activatedRouteSnapshot.params);
 
-  return this.postService.getSinglePost(activatedRouteSnapshot.params.id);
+  return this.postService.getPostComments(activatedRouteSnapshot.params.id);
 }
 
 }
