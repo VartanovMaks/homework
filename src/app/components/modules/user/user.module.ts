@@ -1,3 +1,5 @@
+import { UserPostsComponent } from './components/userPosts/userPosts.component';
+import { UserService } from './services/user.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersComponent } from './components/users/users.component';
@@ -12,6 +14,8 @@ import { UserRoutingModule } from './user-routing.module';
   declarations: [
     UsersComponent,
     UserComponent,
-  ]
+    UserPostsComponent
+  ],
+  providers: [UserService]
 })
 export class UserModule { }
