@@ -10,6 +10,7 @@ const routes: Routes = [
     {path:':id', component:UserPostsComponent, resolve:{data:UserResolveService}}
     ]
   },
+  {path:'**', redirectTo:'' }
 ];
 
 @NgModule({

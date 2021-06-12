@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PostCommentsComponent implements OnInit {
   comments:Comment[];
 
+
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.data.subscribe(value => this.comments=value.data)
   }

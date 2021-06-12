@@ -1,6 +1,5 @@
 import { PostResolveService } from './services/post-resolve.service';
 import { PostCommentsComponent } from './components/postComments/postComments.component';
-import { PostComponent } from './../../post/post.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +10,7 @@ const routes: Routes = [
     {path:':id', component:PostCommentsComponent, resolve:{data:PostResolveService}}
     ]
   },
+  {path:'**', redirectTo:'' }
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes),HttpClientModule],
