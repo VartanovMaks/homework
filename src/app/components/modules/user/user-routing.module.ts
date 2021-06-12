@@ -1,3 +1,4 @@
+import { UserResolveService } from '../user/services/user-resolve.service';
 import { UserPostsComponent } from './components/userPosts/userPosts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -6,7 +7,7 @@ import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
   {path:'', component:UsersComponent, children:[
-    {path:':id', component:UserPostsComponent}
+    {path:':id', component:UserPostsComponent, resolve:{data:UserResolveService}}
     ]
   },
 ];

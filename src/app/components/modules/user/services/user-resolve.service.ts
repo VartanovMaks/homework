@@ -1,5 +1,5 @@
-import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/components/modules/user/models/user';
+import { UserService } from '../services/user.service';
+import { Post } from '../models/post';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserResolveService implements Resolve<User>{
+export class UserResolveService implements Resolve<Post[]>{
 
 constructor(private userService:UserService) { }
 
-resolve(activatedRouteSnapshot: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<User>{
+resolve(activatedRouteSnapshot: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Post[]>{
   console.log('params passed to user resolve', activatedRouteSnapshot.params);
 
-  return this.userService.getSingleUser(activatedRouteSnapshot.params.id);
+  return this.userService.getUsersPosts(activatedRouteSnapshot.params.id);
 }
 
 }

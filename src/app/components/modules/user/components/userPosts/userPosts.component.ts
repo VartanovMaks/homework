@@ -1,4 +1,6 @@
+import { Post } from '../../models/post';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-userPosts',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPostsComponent implements OnInit {
 
-  constructor() { }
+  posts:Post[];
+
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.data.subscribe(value => this.posts=value.data)
+  }
 
   ngOnInit() {
   }
