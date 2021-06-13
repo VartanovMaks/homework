@@ -1,6 +1,4 @@
-<div class="header-div">
-  <button class="header-button" routerLink="posts" routerLinkActive="active">posts</button>
-  <button class="header-button" routerLink="users" routerLinkActive="active">users</button>
-</div>
+<app-sizer [(size)]="fontSizePx"></app-sizer>
+<div [style.font-size.px]="fontSizePx">Resizable Text</div>
 
-<router-outlet></router-outlet>
+<!-- <app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"></app-sizer> -->
