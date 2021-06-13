@@ -22,11 +22,8 @@ export class PostCommentsComponent implements OnInit {
 
     });
     if (this.post == undefined){
-      console.log(this.post);
-      postService.getSinglePost(this.comments[0].postId.toString()).subscribe(value=>{
-        this.post = value;
-        console.log(this.post);
-      })
+      console.log('Post\'s data is undefined');
+      postService.getSinglePost(this.comments[0].postId.toString()).subscribe(value=>this.post = value);
     }
 
   }
