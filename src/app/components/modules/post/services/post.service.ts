@@ -12,8 +12,12 @@ import { Comment } from '../models/comment';
     private commentsUrl = 'https://jsonplaceholder.typicode.com/comments';
 
   constructor(private http:HttpClient) { }
+
   getPosts():Observable<Post[]>{
     return this.http.get<Post[]>(this.postsUrl);
+  }
+  getSinglePost(id:string):Observable<Post>{
+    return this.http.get<Post>(this.postsUrl+'/'+id);
   }
 
   getPostComments(id:string):Observable<Comment>{

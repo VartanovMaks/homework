@@ -7,7 +7,7 @@ import { PostsComponent } from './components/posts/posts.component';
 
 const routes: Routes = [
   {path:'', component:PostsComponent,children:[
-    {path:':id', component:PostCommentsComponent, resolve:{data:PostResolveService}}
+    {path:':id', component:PostCommentsComponent, resolve:{postData:PostResolveService}}
     ]
   },
   {path:'**', redirectTo:'' }

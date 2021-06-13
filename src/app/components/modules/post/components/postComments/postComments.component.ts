@@ -1,6 +1,8 @@
+import { PostService } from './../../services/post.service';
 import { Comment } from '../../models/comment';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Post } from '../../models/post';
 
 @Component({
   selector: 'app-postComments',
@@ -9,10 +11,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PostCommentsComponent implements OnInit {
   comments:Comment[];
+  post:Post;
 
+  constructor(private activatedRoute: ActivatedRoute, private router:Router, private postService:PostService) {
 
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.data.subscribe(value => this.comments=value.data)
+    // this.activatedRoute.data.subscribe(value => this.comments=value.postData);
+    this.activatedRoute.data.subscribe(value => {
+      this.comments=value.postData;
+      this.post=this.router.getCurrentNavigation()?.extras.state as Post;
+
+    });
+    if (this.post == undefined){
+      console.log(this.post);
+      postService.getSinglePost(this.comments[0].postId.toString()).subscribe(value=>{
+        this.post = value;
+        console.log(this.post);
+      })
+    }
+
   }
 
   ngOnInit() {
