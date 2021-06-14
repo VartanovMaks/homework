@@ -1,3 +1,4 @@
+import { UserStorageService } from '../../services/userStorage.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/user';
 
@@ -9,9 +10,15 @@ import { User } from 'src/app/user';
 export class UserDetailsComponent implements OnInit {
   @Input()
   userDetailed:User;
-  constructor() { }
+
+  constructor(private userStorage:UserStorageService) {}
 
   ngOnInit() {
+  }
+  loadUserToStore(){
+    // click function to load new user in global storage
+    this.userStorage.pushUser(this.userDetailed);
+    // console.log('User Details',this.userStorage.store.getValue().name);
   }
 
 }

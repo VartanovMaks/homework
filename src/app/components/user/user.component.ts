@@ -9,6 +9,7 @@ import { User } from 'src/app/user';
 export class UserComponent implements OnInit {
   @Input()
   user:User;
+
   @Output()
   activateUser = new EventEmitter<User>();
 
@@ -17,6 +18,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
   }
   userClicked(){
+    // when button is clicked UserDetails start to render
     this.activateUser.emit(this.user);
   }
 
