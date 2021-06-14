@@ -10,6 +10,9 @@ export class SizerComponent {
   constructor() { }
   @Input()  size!: number | string;
   @Output() sizeChange = new EventEmitter<number>();
+  @Output() nameChange = new EventEmitter<string>();
+  @Input()  name:string;
+  @Input()  surname:string;
 
   dec() { this.resize(-1); }
   inc() { this.resize(+1); }
@@ -18,5 +21,13 @@ export class SizerComponent {
     this.size = Math.min(40, Math.max(8, +this.size + delta));
     this.sizeChange.emit(this.size);
   }
+
+  fname(n:string,s:string){
+    this.nameChange.emit(n+s);
+  }
+
+    change(){
+      this.fname(this.name,this.surname);
+    }
 
 }

@@ -8,4 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   fontSizePx = 16;
+  n = 'Petro'
+  s = "Poroshenko"
+  surmame:string ='ffdf';
+
+  catchCustomEvent(ev:string): void {
+    console.log(ev)
+    this.surmame = ev;
+  }
+
+
 }
