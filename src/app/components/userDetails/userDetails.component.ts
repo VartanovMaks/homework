@@ -7,8 +7,8 @@ import { User } from 'src/app/user';
   styleUrls: ['./userDetails.component.scss']
 })
 export class UserDetailsComponent implements OnInit {
-  // @Input()
-  // userDetailed:User;
+  @Input()
+  userDetailed:User;
   constructor() { }
 
   ngOnInit() {

@@ -11,6 +11,7 @@ export class UsersComponent implements OnInit {
 
   users:User[];
   activatedDetails:boolean;
+  activeUser:User;
 
   constructor(private usersService:UsersService){
     this.activatedDetails=false;
@@ -18,6 +19,10 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.usersService.getUsers().subscribe(value=>this.users=value)
+  }
+  getActivatedUser(user:User){
+    this.activatedDetails=true;
+    this.activeUser=user;
   }
 
 }
