@@ -1,21 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  fontSizePx = 16;
-  n = 'Petro'
-  s = "Poroshenko"
-  surmame:string ='ffdf';
+  userName:string = 'User\'s name';
+  constructor() { }
 
-  catchCustomEvent(ev:string): void {
-    console.log(ev)
-    this.surmame = ev;
+  ngOnInit() {
   }
-
 
 }

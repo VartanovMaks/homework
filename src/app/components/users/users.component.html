@@ -1,0 +1,8 @@
+<div>
+<app-user *ngFor="let u of users" [user]="u"></app-user>
+<hr/>
+</div>
+<div *ngIf="activatedDetails">
+  <app-userDetails></app-userDetails>
+</div>
+
