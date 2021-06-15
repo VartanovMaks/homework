@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  title:string; //user name to be written in upper right corner. Getting from store.
+  title:string;
 
   constructor() {
     this.title="cars database"
