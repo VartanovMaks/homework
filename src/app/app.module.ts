@@ -1,7 +1,4 @@
-import { UserDetailsComponent } from './components/userDetails/userDetails.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UsersComponent } from './components/users/users.component';
-import { UserComponent } from './components/user/user.component';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,9 +10,6 @@ import { AppComponent } from './components/app/app.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    UsersComponent,
-    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

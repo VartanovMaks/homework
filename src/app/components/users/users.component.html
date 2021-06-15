@@ -1,8 +1,0 @@
-<div >
-<app-user *ngFor="let u of users" [user]="u" (activateUser)="getActivatedUser($event)"></app-user>
-<hr/>
-</div>
-<div *ngIf="activatedDetails">
-  <app-userDetails [userDetailed]="activeUser"></app-userDetails>
-</div>
-
