@@ -1,3 +1,18 @@
-<p>
-  carInput works!
-</p>
+<form #carForm='ngForm' (ngSubmit)="submit()">
+  <div>
+    <div><label> Car model</label></div>
+    <input required #ml='ngModel' type="text" name="model" [(ngModel)]="car.model">
+  </div>
+  <div>
+    <div><label> Year of production</label></div>
+    <input min='1980' required #yr='ngModel' type="number" placeholder="min 1980" name="year" [(ngModel)]="car.year">
+    <div *ngIf="yr.invalid">wrong year format</div>
+  </div>
+  <div>
+    <div><label>Price</label></div>
+    <input min='1' required #pr='ngModel' type="number" name="price" [(ngModel)]="car.price">
+    <div *ngIf="pr.invalid">wrong price format</div>
+  </div>
+  <button [disabled]="ml.invalid || !(yr.value>1980) || !(pr.value>1)">Add car to base</button>
+  <button (click)="eraseInput()">clear form</button>
+</form>
