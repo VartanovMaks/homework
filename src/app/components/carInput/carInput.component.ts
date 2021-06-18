@@ -1,6 +1,7 @@
+import { NgForm } from '@angular/forms';
+import { CarsService } from './../../services/cars.service';
 import { Car } from './../models/car';
 import { Component, Input, OnInit } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-carInput',
@@ -15,14 +16,18 @@ export class CarInputComponent implements OnInit {
       price:NaN
   }
 
-  constructor() {}
+  constructor(private http:CarsService) {}
 
   ngOnInit(): void {}
 
-  submit() {
-
-    console.log(this.car);
-
+  submit(form:NgForm) {
+    if (form.valid) {
+      this.http.postCar(this.car).subscribe(value=>console.log('posted car',value),
+          error=>{console.log(`Error ${error.status} Url ${error.url}`)
+                  console.log(error);
+        }
+      )
+    }
   }
   eraseInput(){
     this.car={

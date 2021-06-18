@@ -1,4 +1,4 @@
-<form #carForm='ngForm' (ngSubmit)="submit()">
+<form #carForm='ngForm' (ngSubmit)="submit(carForm)">
   <div>
     <div><label> Car model</label></div>
     <input required #ml='ngModel' type="text" name="model" [(ngModel)]="car.model">
@@ -13,6 +13,10 @@
     <input min='1' required #pr='ngModel' type="number" name="price" [(ngModel)]="car.price">
     <div *ngIf="pr.invalid">wrong price format</div>
   </div>
-  <button [disabled]="ml.invalid || !(yr.value>1980) || !(pr.value>1)">Add car to base</button>
-  <button (click)="eraseInput()">clear form</button>
+  <div>
+    <button (click)="eraseInput()">clear form</button>
+  </div>
+  <div>
+    <button [disabled]="ml.invalid || !(yr.value>1980) || !(pr.value>1)">Add car to base</button>
+  </div>
 </form>

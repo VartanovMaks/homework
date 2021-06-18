@@ -9,12 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsListComponent implements OnInit {
 
-  carsArray:Car[];
+  carsArray:Car[]=[];
+  error:string;
 
   constructor(private http:CarsService) { }
 
   ngOnInit() {
-    this.http.getCars().subscribe(value=>this.carsArray = value)
-  }
-
+    this.http.getCars().subscribe(value=>{
+      for (let element of value){
+        // last element API will be first on screen
+        this.carsArray.unshift(element)
+      }},
+      error=>{this.error=`Error ${error.status} Url ${error.url}`;  console.log(this.error);}
+      )
+    }
 }

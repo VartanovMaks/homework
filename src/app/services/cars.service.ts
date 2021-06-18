@@ -13,5 +13,7 @@ export class CarsService {
   getCars():Observable<Car[]>{
     return this.http.get<Car[]>(this.carsUrl);
   }
-
+  postCar(car:Car){
+    return this.http.post(this.carsUrl,car);
+  }
 }
